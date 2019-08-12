@@ -22,6 +22,8 @@ import org.apache.logging.log4j.Logger;
 import java.util.Dictionary;
 import java.util.Objects;
 
+import static codes.zwarts.alkahestry.ModItems.BANANA;
+
 @Mod(modid = Alkahestry.MODID, name = Alkahestry.NAME, version = Alkahestry.VERSION)
 public class Alkahestry
 {
@@ -34,7 +36,7 @@ public class Alkahestry
     public static CreativeTabs devTab = new CreativeTabs("DevRoom") {
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.items.get(0));
+            return new ItemStack(ModItems.items.get(BANANA));
         }
     };
 

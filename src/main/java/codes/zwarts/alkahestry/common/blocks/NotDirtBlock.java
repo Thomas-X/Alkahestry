@@ -19,6 +19,7 @@ public class NotDirtBlock extends BlockBase {
         setCreativeTab(Alkahestry.devTab);
     }
 
+
     // On right click on the block, what to do?
     // could be useful for GUI stuff or multiblock stuff
     @Override

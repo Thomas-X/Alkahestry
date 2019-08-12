@@ -1,4 +1,4 @@
-package codes.zwarts.alkahestry.common.blocks.moleculeSplitter;
+package codes.zwarts.alkahestry.common.blocks.inventoryHandlers;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -10,9 +10,9 @@ import java.util.List;
 
 public class PublicInventoryHandler extends ItemStackHandler {
     public int[] outputSlots;
-    private final ItemStackHandler privateStackHandler;
+    private final PrivateInventoryHandler privateStackHandler;
 
-    public PublicInventoryHandler(int size, int[] outputSlots, ItemStackHandler privateStackHandler) {
+    public PublicInventoryHandler(int size, int[] outputSlots, PrivateInventoryHandler privateStackHandler) {
         super(size);
         this.outputSlots = outputSlots;
         this.privateStackHandler = privateStackHandler;

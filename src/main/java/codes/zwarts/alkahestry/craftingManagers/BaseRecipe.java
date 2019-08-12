@@ -3,7 +3,7 @@ package codes.zwarts.alkahestry.craftingManagers;
 import java.util.ArrayList;
 
 public class BaseRecipe {
-    public static class InputOutput {
+    public static class InputOutput<T> {
         /**
          * Registry name, with modid, i.e minecraft:sand, alkahestry:oxygen
          */
@@ -12,10 +12,15 @@ public class BaseRecipe {
          * Amount needed (for input) and given in output
          */
         public int amount;
+        /**
+        * Ingredient reference (i.e Blocks.SAND, ModBlocks.blocks.get(ModBlocks.SAND))
+        * */
+        public T ingredientReference;
 
-        public InputOutput(String registryName, int amount) {
+        public InputOutput(String registryName, int amount, T ingredientReference) {
             this.registryName = registryName;
             this.amount = amount;
+            this.ingredientReference = ingredientReference;
         }
     }
 
