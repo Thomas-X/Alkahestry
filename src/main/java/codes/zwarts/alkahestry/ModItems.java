@@ -17,12 +17,14 @@ public class ModItems {
     public static final String OXYGEN = "oxygen";
     public static final String NITROGEN = "nitrogen";
     public static final String BANANA = "banana";
+    public static final String ZEEKOE = "zeekoe";
 
     public static Map<String, ItemBase> items = new HashMap<>();
 
     static {
         items.put(OXYGEN, new ItemBase(OXYGEN, Alkahestry.devTab));
         items.put(NITROGEN, new ItemBase(NITROGEN, Alkahestry.devTab));
+        items.put(ZEEKOE, new ItemBase(ZEEKOE, Alkahestry.devTab));
         items.put(BANANA, new Banana());
     }
     public static void register(IForgeRegistry<Item> registry) {

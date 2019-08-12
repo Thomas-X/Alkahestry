@@ -3,6 +3,7 @@ package codes.zwarts.alkahestry.common.blocks.moleculeSplitter;
 import codes.zwarts.alkahestry.Alkahestry;
 import codes.zwarts.alkahestry.ModGuiHandler;
 import codes.zwarts.alkahestry.common.blocks.BlockTileEntity;
+import codes.zwarts.alkahestry.common.blocks.MultiTexturedBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -20,7 +21,7 @@ import net.minecraftforge.items.IItemHandler;
 
 import javax.annotation.Nullable;
 
-public class MoleculeSplitter extends BlockTileEntity<MoleculeSplitterTileEntity> {
+public class MoleculeSplitter extends MultiTexturedBlock<MoleculeSplitterTileEntity> {
 
     public MoleculeSplitter(String name) {
         super(Material.IRON, name);

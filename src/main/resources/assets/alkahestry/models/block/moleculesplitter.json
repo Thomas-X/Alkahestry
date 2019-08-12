@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "alkahestry:blocks/moleculesplitterfront",
+    "down": "alkahestry:blocks/moleculesplitterdown",
+    "up": "alkahestry:blocks/moleculesplitterup",
+    "east": "alkahestry:blocks/moleculesplitterleft",
+    "west": "alkahestry:blocks/moleculesplitterright",
+    "north": "alkahestry:blocks/moleculesplitterfront",
+    "south": "alkahestry:blocks/moleculesplitterback"
+  }
+}
