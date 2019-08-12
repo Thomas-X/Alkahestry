@@ -34,16 +34,7 @@ public class MoleculeSplitter extends BlockTileEntity<MoleculeSplitterTileEntity
         if (!world.isRemote) {
             MoleculeSplitterTileEntity tile = getTileEntity(world, pos);
             IItemHandler itemHandler = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, side);
-            if (!player.isSneaking()) {
-                if (player.getHeldItem(hand).isEmpty()) {
-                    player.setHeldItem(hand, itemHandler.extractItem(0, 64, false));
-                } else {
-                    player.setHeldItem(hand, itemHandler.insertItem(0, player.getHeldItem(hand), false));
-                }
-                tile.markDirty();
-            } else {
-                player.openGui(Alkahestry.instance, ModGuiHandler.MOLECULE_SPLITTER_GUI_ID, world, pos.getX(), pos.getY(), pos.getZ());
-            }
+            player.openGui(Alkahestry.instance, ModGuiHandler.MOLECULE_SPLITTER_GUI_ID, world, pos.getX(), pos.getY(), pos.getZ());
         }
         return true;
     }

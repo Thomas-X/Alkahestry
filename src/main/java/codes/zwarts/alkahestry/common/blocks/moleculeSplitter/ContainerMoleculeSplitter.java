@@ -15,8 +15,9 @@ import net.minecraftforge.items.SlotItemHandler;
 import javax.annotation.Nonnull;
 
 public class ContainerMoleculeSplitter extends ContainerBase {
-    public static int INPUT_INDEX = 0;
-    public static int OUTPUT_INDEX = 1;
+    public static int[] INPUT_SLOTS = new int[] { 0 };
+    public static int[] OUTPUT_SLOTS = new int[] { 1, 2 };
+    public static int SLOTS = 3;
 
     @Override
     public void putStackInSlot(int slotID, ItemStack stack) {
@@ -33,7 +34,7 @@ public class ContainerMoleculeSplitter extends ContainerBase {
         IItemHandler inventory = moleculeSplitterTileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);
 
         // Normal inventory
-        addSlotToContainer(new SlotItemHandler(inventory, INPUT_INDEX, 80, 35) {
+        addSlotToContainer(new SlotItemHandler(inventory, INPUT_SLOTS[0], 80, 35) {
             @Override
             public void onSlotChanged() {
                 moleculeSplitterTileEntity.markDirty();
@@ -41,22 +42,22 @@ public class ContainerMoleculeSplitter extends ContainerBase {
         });
 
         // Should deny placing stacks
-        addSlotToContainer(new SlotItemHandler(inventory, OUTPUT_INDEX, 120, 35) {
+        addSlotToContainer(new SlotItemHandler(inventory, OUTPUT_SLOTS[0], 120, 35) {
+            @Override
+            public void onSlotChanged() {
+                moleculeSplitterTileEntity.markDirty();
+            }
+        });
+        // Should deny placing stacks
+        addSlotToContainer(new SlotItemHandler(inventory, OUTPUT_SLOTS[1], 120, 75) {
             @Override
             public void onSlotChanged() {
                 moleculeSplitterTileEntity.markDirty();
             }
         });
 
-        // Player inventory
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 9; j++) {
-                addSlotToContainer(new Slot(playerInv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-            }
-        }
-        for (int k = 0; k < 9; k++) {
-            addSlotToContainer(new Slot(playerInv, k, 8 + k * 18, 142));
-        }
+        // Add player inventory (simple, doesn't work if y-positions change because of the texutre)
+        super.addPlayerInventorySlots(playerInv);
     }
 
 

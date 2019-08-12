@@ -19,4 +19,8 @@ public class TileEntityBase extends TileEntity {
     public void registerTileEntity() {
         GameRegistry.registerTileEntity(TileEntityBase.class, new ResourceLocation(Util.generateRegistryName(this.name)));
     }
+
+    public void onInventoryChanged() {
+
+    }
 }
