@@ -1,0 +1,16 @@
+[
+{
+  "modid": "alkahestry",
+  "name": "Alkahestry",
+  "description": "Making something from something",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Thomas Zwarts"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
