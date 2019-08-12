@@ -7,9 +7,14 @@ public class Recipes {
 
 
     static {
-//        MoleculeSplitter.add(
-//                new BaseRecipe(null, )
-//        );
+        MoleculeSplitter.add(
+                new BaseRecipe(null, new BaseRecipe.InputOutput[]{
+                        new BaseRecipe.InputOutput("minecraft:sand", 1)
+                },
+                        new BaseRecipe.InputOutput[]{
+                                new BaseRecipe.InputOutput("alkahestry:oxygen", 1)
+                        })
+        );
     }
 
 }
