@@ -2,6 +2,7 @@ package codes.zwarts.alkahestry.common.blocks.moleculeSplitter;
 
 import codes.zwarts.alkahestry.Alkahestry;
 import codes.zwarts.alkahestry.common.blocks.ContainerBase;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
@@ -18,6 +19,7 @@ public class ContainerMoleculeSplitter extends ContainerBase {
     public static int[] INPUT_SLOTS = new int[] { 0 };
     public static int[] OUTPUT_SLOTS = new int[] { 1, 2 };
     public static int SLOTS = 3;
+    public final MoleculeSplitterTileEntity moleculeSplitterTileEntity;
 
     @Override
     public void putStackInSlot(int slotID, ItemStack stack) {
@@ -30,11 +32,12 @@ public class ContainerMoleculeSplitter extends ContainerBase {
     }
 
     public ContainerMoleculeSplitter(InventoryPlayer playerInv, final MoleculeSplitterTileEntity moleculeSplitterTileEntity) {
+        this.moleculeSplitterTileEntity = moleculeSplitterTileEntity;
         // Molecule splitter's inventory
         IItemHandler inventory = moleculeSplitterTileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);
 
         // Normal inventory
-        addSlotToContainer(new SlotItemHandler(inventory, INPUT_SLOTS[0], 80, 35) {
+        addSlotToContainer(new SlotItemHandler(inventory, INPUT_SLOTS[0], 80, 11) {
             @Override
             public void onSlotChanged() {
                 moleculeSplitterTileEntity.markDirty();
@@ -42,14 +45,14 @@ public class ContainerMoleculeSplitter extends ContainerBase {
         });
 
         // Should deny placing stacks
-        addSlotToContainer(new SlotItemHandler(inventory, OUTPUT_SLOTS[0], 120, 35) {
+        addSlotToContainer(new SlotItemHandler(inventory, OUTPUT_SLOTS[0], 44, 45) {
             @Override
             public void onSlotChanged() {
                 moleculeSplitterTileEntity.markDirty();
             }
         });
         // Should deny placing stacks
-        addSlotToContainer(new SlotItemHandler(inventory, OUTPUT_SLOTS[1], 120, 75) {
+        addSlotToContainer(new SlotItemHandler(inventory, OUTPUT_SLOTS[1], 116, 45) {
             @Override
             public void onSlotChanged() {
                 moleculeSplitterTileEntity.markDirty();

@@ -17,6 +17,8 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.items.ItemHandlerHelper;
 
+import java.util.ArrayList;
+
 public class TileEntityMachineBase extends TileEntityBase implements ITickable, IOnInventoryChanged {
     public boolean isWorking = false;
     public boolean isDoneWorking = false;
@@ -136,6 +138,26 @@ public class TileEntityMachineBase extends TileEntityBase implements ITickable, 
         currentRecipe = null;
     }
 
+    /*
+    * Progress bar hooks (testing atm)
+    * */
+
+    public ArrayList<IProgressBarHook> hooks = new ArrayList<>();
+
+    public interface IProgressBarHook {
+        public void draw();
+    }
+
+    public void addProgressBarHook(IProgressBarHook hook) {
+        hooks.add(hook);
+    }
+
+    public void progressBarHook() {
+        for (IProgressBarHook hook : hooks) {
+            hook.draw();
+        }
+    }
+
     @Override
     public void update() {
         if (!world.isRemote) {
@@ -148,7 +170,8 @@ public class TileEntityMachineBase extends TileEntityBase implements ITickable, 
                     this.progress = 0;
                 } else {
                     this.progress += getWorkingSpeed();
-                    Alkahestry.logger.info(this.progress);
+                    // let the hooks know that the progress bar has been updated
+                    progressBarHook();
                 }
                 return;
             }

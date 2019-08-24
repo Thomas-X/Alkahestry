@@ -16,7 +16,15 @@ public class Recipes {
                 },
                         new BaseRecipe.InputOutput[]{
                                 new BaseRecipe.InputOutput<>(ModItems.items.get(ModItems.OXYGEN).getRegistryName().toString(), 3, ModItems.items.get(ModItems.OXYGEN)),
-                                new BaseRecipe.InputOutput<>(ModItems.items.get(ModItems.NITROGEN).getRegistryName().toString(), 2, ModItems.items.get(ModItems.NITROGEN))
+                                new BaseRecipe.InputOutput<>(ModItems.items.get(ModItems.NITROGEN).getRegistryName().toString(), 1, ModItems.items.get(ModItems.NITROGEN))
+                        })
+        );
+        MoleculeSplitter.add(
+                new BaseRecipe(null, new BaseRecipe.InputOutput[]{
+                        new BaseRecipe.InputOutput<>(Blocks.STONE.getRegistryName().toString(), 3, Blocks.STONE)
+                },
+                        new BaseRecipe.InputOutput[]{
+                                new BaseRecipe.InputOutput<>(ModItems.items.get(ModItems.NITROGEN).getRegistryName().toString(), 5, ModItems.items.get(ModItems.NITROGEN))
                         })
         );
     }
